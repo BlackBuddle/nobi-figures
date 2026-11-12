@@ -839,7 +839,8 @@ function tick(now) {
 const run = () => { if (!frame && visible) { last = 0; frame = requestAnimationFrame(tick); } };
 const take = () => { touring = false; clearTimeout(idle); idle = setTimeout(() => { touring = !still.matches; run(); }, 3600); run(); };
 new IntersectionObserver((entries) => { visible = entries[entries.length - 1].isIntersecting; if (visible) run(); }, { rootMargin: '120px 0px' }).observe(stage);
-stage.addEventListener('pointermove', (event) => { const box = svg.getBoundingClientRect(); steerTo(Math.min(1, Math.max(0, (event.clientX - box.left) / box.width))); take(); });
+const share = (v) => Math.min(1, Math.max(0, v));
+stage.addEventListener('pointermove', (event) => { const box = svg.getBoundingClientRect(); steerTo(share((event.clientX - box.left) / box.width), share((event.clientY - box.top) / box.height)); take(); });
 stage.addEventListener('keydown', (event) => { if (nudge(event.key)) { event.preventDefault(); take(); } });
 draw();
 </script></body></html>
