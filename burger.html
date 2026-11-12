@@ -117,7 +117,7 @@ body{margin:0;background:var(--anatomy-page);color:var(--anatomy-text);font:14px
 .iso-stage{outline-offset:6px;touch-action:pan-y}
 .iso-stage:focus-visible{outline:1px solid var(--anatomy-muted)}
 body,.iso-plate-corner{font-family:"Pretendard","Malgun Gothic","Apple SD Gothic Neo",system-ui,sans-serif;word-break:keep-all}
-.iso-plate-corner{letter-spacing:0;font-variant-numeric:tabular-nums}
+.iso-plate-corner{letter-spacing:0!important;font-variant-numeric:tabular-nums}
 /* 임베드 창이 낮아도 그림이 잘리지 않게 높이에 맞추고, 아주 낮으면 설명을 숨긴다 */
 .iso-svg{max-height:calc(100vh - 150px)}
 @media (max-height:560px){.iso-legend{display:none}.iso-page{margin:6px auto}.iso-plate{padding:40px 8px 44px}.iso-svg{max-height:calc(100vh - 100px)}}
